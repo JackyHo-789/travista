@@ -14,7 +14,7 @@ import LocationBlk from './components/LocationBlock.vue'
 
   <main>
     <LocationBlk/>
-    <Gobtn></Gobtn>
+    <!-- <Gobtn></Gobtn> -->
   </main>
 </template>
 
@@ -29,8 +29,8 @@ header {
 }
 
 .backgroundImage {
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit:fill;
   object-position: center;
   z-index: -1;
@@ -43,23 +43,24 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  filter: blur(5px);
 }
 
 @media (min-width: 1024px) {
-  header {
+  /* header {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
-  }
+  } */
 
   .logo {
     margin: 0 2rem 0 0;
   }
-
+/* 
   header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-  }
+  } */
 }
 </style>
