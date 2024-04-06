@@ -1,50 +1,136 @@
 <template>
     <form @submit.prevent="onSubmit">
-      <VueMultiselect
-        v-model="selected"
-        :options="options"
-        placeholder="請選擇您的目的地">
-      </VueMultiselect>
-    
-      <label class="dropdown__text">請選擇您的偏好:</label>
-      <select class="dropdown__items" v-model="selectedValue">
-        <option v-for="option in options" :key="option" :value="option">{{ option }}</option>
-      </select>
+      <table>
+        <tr v-for="location in locations">
+          <td>
+            <label>目的地:</label>
+            <VueMultiselect
+            v-model="selected"
+            :options="options"
+            placeholder="請選擇您的目的地">
+          </VueMultiselect>
+          </td>
+          <td>
+            <div>
+              <label>開始日期:</label>
+              <input class="datepicker" type="date" v-model="startDate" />
+              <label class="mt-2">結束日期:</label>
+              <input type="date" v-model="endDate"/>
+              <div v-if="hasDateRange && correctDateRange" class="mt-2">
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="btn btn-primary" :onclick="addLocation" type="add-location">添加目的地</button>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>
+            <label class="dropdown__text">請選擇您的偏好:</label>
+            <!-- <select class="dropdown__items" v-model="selectedValue">
+              <option v-for="option in optionsPreference" :key="option" :value="option">{{ option }}</option>
+            </select> -->
+            <VueMultiselect
+              v-model="selectedPreference"
+              :options="optionsPreference"
+              placeholder="請選擇您的偏好">
+            </VueMultiselect>
+          </td>
+          <td>
+            <label class="dropdown__text">小童人數:</label>
+            <VueMultiselect
+              v-model="selectedChild"
+              :options="optionsChild"
+              placeholder="小童人數">
+            </VueMultiselect>
+            <!-- <select class="dropdown__items" v-model="selectedValue">
+              <option v-for="option in optionsChild" :key="option" :value="option">{{ option }}</option>
+            </select> -->
+          </td>
+          <td>
+            <label class="dropdown__text">長者人數:</label>
+            <VueMultiselect
+              v-model="selectedElderly"
+              :options="optionsElderly"
+              placeholder="長者人數">
+            </VueMultiselect>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td><button class="submit-button btn btn-success" type="submit">去旅行!</button></td>
+        </tr>
+      </table>
+          
+          <!-- <select class="dropdown__items" v-model="selectedValue">
+            <option v-for="option in optionsElderly" :key="option" :value="option">{{ option }}</option>
+          </select> -->
 
-      <label class="dropdown__text">小童人數:</label>
-      <select class="dropdown__items" v-model="selectedValue">
-        <option v-for="option in options" :key="option" :value="option">{{ option }}</option>
-      </select>
 
-      <label class="dropdown__text">長者人數:</label>
-      <select class="dropdown__items" v-model="selectedValue">
-        <option v-for="option in options" :key="option" :value="option">{{ option }}</option>
-      </select>
+      <DateSelector></DateSelector>
       <!-- <label for="name">Name:</label>
       <input type="text" id="name" v-model="name" required> -->
   
       <!-- <label for="email">Email:</label>
       <input type="email" id="email" v-model="email" required> -->
   
-      <button type="submit">Submit</button>
     </form>
   </template>
   
   <script>
+  import 'bootstrap/dist/css/bootstrap.css'
+  import 'bootstrap/dist/js/bootstrap.js'
   import VueMultiselect from 'vue-multiselect'
+  import DateSelector from './TravelDateSelector.vue'
   export default {
     components: { VueMultiselect },
     data () {
       return {
         selected: null,
-        options: ['東京', '大阪', '札幌','小樽', '札幌', '福岡', '富良野','神戶']
+        selectedPreference: null,
+        selectedChild: null,
+        selectedElderly: null,
+        options: ['東京', '大阪', '札幌','小樽', '札幌', '福岡', '富良野','神戶'],
+        optionsPreference: ['經濟', '舒適', '豪華'],
+        optionsChild: ['0', '1', '2', '3', '4', '>4'],
+        optionsElderly: ['0', '1', '2', '3', '4', '>4'],
+        locations: ['0'],
+        startDate: '',
+        endDate: '',
+        selectedRange: null
       }
+    },
+    computed: {
+      hasDateRange() {
+        return this.endDate !== '';
+      },
+      correctDateRange() {
+        return this.startDate < this.endDate;
+      },
+      selectedRange() {
+        if (!this.hasDateRange) return null;
+        const startDate = new Date(this.startDate);
+        const endDate = new Date(this.endDate);
+        return `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`;
+      },
     },
     methods: {
       onSubmit() {
         // Handle form submission
         console.log('Name:', this.name)
         console.log('Email:', this.email)
+      },
+      addLocation() {
+        // 在這裡執行添加目的地的相關邏輯
+        // 例如將選擇的目的地添加到 locations 數組中
+        this.locations.push(this.selected)
+      },
+      resetRange() {
+        this.startDate = '';
+        this.endDate = '';
       }
     }
   }
@@ -65,7 +151,16 @@
 //   }
   
   </script>
+
 <style src="vue-multiselect/dist/vue-multiselect.css"></style>
+<style>
+td {
+  height: 70px;
+}
+.submit-button{
+  width: 500px;
+}
+</style>
 
 <!-- <script setup>
     import DateSelector from './TravelDateSelector.vue'
