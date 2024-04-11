@@ -1,8 +1,9 @@
 <template>
+  <div class="card">
     <form @submit.prevent="onSubmit">
       <table>
         <tr v-for="location in locations">
-          <td>
+          <td class = "target-location">
             <label>目的地:</label>
             <VueMultiselect
             v-model="selected"
@@ -27,7 +28,7 @@
       </table>
       <table>
         <tr>
-          <td>
+          <td class = "target-preference">
             <label class="dropdown__text">請選擇您的偏好:</label>
             <!-- <select class="dropdown__items" v-model="selectedValue">
               <option v-for="option in optionsPreference" :key="option" :value="option">{{ option }}</option>
@@ -38,7 +39,7 @@
               placeholder="請選擇您的偏好">
             </VueMultiselect>
           </td>
-          <td>
+          <td class = "target-child-count">
             <label class="dropdown__text">小童人數:</label>
             <VueMultiselect
               v-model="selectedChild"
@@ -49,7 +50,7 @@
               <option v-for="option in optionsChild" :key="option" :value="option">{{ option }}</option>
             </select> -->
           </td>
-          <td>
+          <td class = "target-elder-count">
             <label class="dropdown__text">長者人數:</label>
             <VueMultiselect
               v-model="selectedElderly"
@@ -78,6 +79,7 @@
       <input type="email" id="email" v-model="email" required> -->
   
     </form>
+  </div>
   </template>
   
   <script>
@@ -153,12 +155,33 @@
   </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.css"></style>
-<style>
-td {
-  height: 70px;
+<style scoped>
+.card {
+  max-width: 60%;
+  display: flex;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  height: 600px;
+}
+
+.target-location {
+  width: 500px;
+}
+.target-preference {
+  width: 200px;
+}
+.target-child-count {
+  width: 200px;
+}
+.target-elder-count {
+  width: 200px;
 }
 .submit-button{
   width: 500px;
+  display: flex;
 }
 </style>
 

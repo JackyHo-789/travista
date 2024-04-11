@@ -1,33 +1,17 @@
 <script setup>
-
-import Gobtn from './components/GoButton.vue'
-import LocationBlk from './components/LocationBlock.vue'
-
+import SearchForm from './components/SearchFrom.vue';
 </script>
 
 <template>
   <img class="backgroundImage" src="./assets/create_a_Otaru_river_photo_in_Hokkaido.png" alt="Background Image" />
-  <header>
-    <div class="wrapper">
-    </div>
-  </header>
-
-  <main>
-    <LocationBlk/>
-    <!-- <Gobtn></Gobtn> -->
-  </main>
+  <el-header>
+  </el-header>
+  <el-main>
+    <SearchForm></SearchForm>
+  </el-main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
 .backgroundImage {
   width: 100%;
   height: 100%;
@@ -46,22 +30,4 @@ header {
   filter: blur(8px);
 }
 
-@media (min-width: 1024px) {
-  /* header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  } */
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-/* 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  } */
-}
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"></link>
