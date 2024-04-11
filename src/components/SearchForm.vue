@@ -141,10 +141,12 @@ const state1 = ref('')
 
 const onSubmit = () => {
   console.log('submit!')
+  $router.push('/result')
 }
 
 const handleSelect = (item) => {
   console.log(item)
+  
 }
 
 const destinations = ref([])
