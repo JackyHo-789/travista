@@ -7,7 +7,9 @@ import SearchForm from './components/SearchFrom.vue';
   <el-header>
   </el-header>
   <el-main>
-    <SearchForm></SearchForm>
+    <el-row class="row-bg">
+      <SearchForm></SearchForm>
+    </el-row>
   </el-main>
 </template>
 
@@ -28,6 +30,16 @@ import SearchForm from './components/SearchFrom.vue';
   background-repeat: no-repeat;
   background-size: cover;
   filter: blur(8px);
+}
+
+.el-row{
+  height: 100%;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.el-main {
+  height: 100%;
 }
 
 </style>

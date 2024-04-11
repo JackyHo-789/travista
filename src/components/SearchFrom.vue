@@ -24,7 +24,7 @@
                         style="width: 100%"
                         />
                     </el-col>
-                    <el-col :span="2" class="text-center">
+                    <el-col :span="1" class="text-center" style="margin-left: 10px; margin-right: 5px;">
                         <span class="text-gray-500">至</span>
                     </el-col>
                     <el-col :span="11">
@@ -42,7 +42,7 @@
                 </el-col>
             </el-row>
             
-            <el-row>
+            <el-row style="margin-top: 20px;">
                 <el-col :span="5" style="margin-right: 10px;">
                     <el-form-item label="人數">
                         <el-select v-model="form.numpeople" placeholder="人數">
