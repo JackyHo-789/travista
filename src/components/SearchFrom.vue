@@ -1,11 +1,11 @@
 <template>
     <el-card>
         <el-form :model="form" label-width="auto">
-            <el-row>
+            <el-row v-for="dest in form.dests">
                 <el-col :span="7">
                     <el-form-item label="目的地">
                     <el-autocomplete
-                        v-model="form.dest"
+                        v-model="selectTemp"
                         :fetch-suggestions="querySearch"
                         clearable
                         class="destination-input"
@@ -37,8 +37,8 @@
                     </el-col>
                     </el-form-item>
                 </el-col>
-                <el-col :span="2">
-                    <el-button type="primary" style="margin-left: 15px;">新增</el-button>
+                <el-col :span="1">
+                    <el-button type="primary" style="margin-left: 15px;" @click="addLocationBlk">+</el-button>
                 </el-col>
             </el-row>
             
@@ -123,9 +123,11 @@
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
 
+const selectTemp = ref('');
+
 // do not use same name with ref
 const form = reactive({
-  dest: '',
+  dests: [''],
   date1: '',
   date2: '',
   numpeople: 1,
@@ -177,6 +179,13 @@ const createFilter = (queryString) => {
 onMounted(() => {
     destinations.value = loadAll()
 })
+
+function addLocationBlk() {
+        // 在這裡執行添加目的地的相關邏輯
+        // 例如將選擇的目的地添加到 locations 數組中
+        form.dests.push("")
+}
+
 </script>
 
 <style scoped>
