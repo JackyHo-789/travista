@@ -10,7 +10,11 @@ import HeaderMenu from './components/HeaderMenu.vue'
   <el-main>
     <el-row class="row-bg">
       <!-- <SearchForm></SearchForm> -->
-      <router-view></router-view>
+      <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </el-row>
   </el-main>
 </template>
@@ -31,5 +35,15 @@ body {
 
 #app {
   height: 100%;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

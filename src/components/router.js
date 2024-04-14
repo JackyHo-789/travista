@@ -4,8 +4,9 @@ import SearchForm from './SearchForm.vue'
 import ResultPage from './ResultPage.vue'
 
 const routes = [
-    { path: '/', component: SearchForm },
-    { path: '/result', component: ResultPage },
+    { path: '/', component: SearchForm, meta: { transition: 'fade' }},
+    
+    { path: '/result', component: ResultPage, meta: { transition: 'fade' } },
 ]
 
 const router = createRouter({
