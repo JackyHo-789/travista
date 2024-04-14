@@ -1,5 +1,9 @@
 <template>
-    <el-card>
+    <el-header>
+        <img class="backgroundImage"/>
+    </el-header>
+    <body>
+        <el-card class="search-form-card" shadow="always">
         <el-form :model="form" label-width="auto">
             <el-row v-for="dest in form.dests">
                 <el-col :span="7">
@@ -38,7 +42,7 @@
                     </el-form-item>
                 </el-col>
                 <el-col :span="1">
-                    <el-button type="primary" style="margin-left: 15px;" @click="addLocationBlk">+</el-button>
+                    <!-- <el-button type="primary" style="margin-left: 15px;" @click="addLocationBlk">+</el-button> -->
                 </el-col>
             </el-row>
             
@@ -88,19 +92,19 @@
             </el-form-item> -->
             <el-form-item label="活動偏好">
             <el-checkbox-group v-model="form.activity">
-                <el-checkbox value="Online activities" name="type">
+                <el-checkbox value="photograph" name="type">
                 打卡
                 </el-checkbox>
-                <el-checkbox value="Promotion activities" name="type">
+                <el-checkbox value="historical" name="type">
                 歷史文化
                 </el-checkbox>
-                <el-checkbox value="Offline activities" name="type">
+                <el-checkbox value="nature" name="type">
                 自然風景
                 </el-checkbox>
-                <el-checkbox value="Simple brand exposure" name="type">
+                <el-checkbox value="foods" name="type">
                 美食
                 </el-checkbox>
-                <el-checkbox value="Simple brand exposure" name="type">
+                <el-checkbox value="shopping" name="type">
                 購物
                 </el-checkbox>
             </el-checkbox-group>
@@ -115,13 +119,44 @@
             <el-input v-model="form.desc" type="textarea" />
             </el-form-item>-->
             <el-form-item>
-            <el-button type="primary" @click="onSubmit">出發!</el-button>
+            <el-button class="submit-btn" type="primary" @click="onSubmit">出發!</el-button>
             </el-form-item>
         </el-form>
     </el-card>
+    <el-row>
+        <el-card class="sugg-card tky-card">
+            <el-row>
+                <img style="width: 110px; height: 110px" src="../assets/tokyo.jpg" fit="cover" />
+            </el-row>
+            東京
+        </el-card>
+        <el-card class="sugg-card osa-card">
+            <el-row>
+                <img style="width: 110px; height: 110px" src="../assets/osaka.jpg" fit="cover" />
+            </el-row>
+            大阪
+        </el-card>
+        <el-card class="sugg-card kyt-card">
+            <el-row>
+                <img style="width: 110px; height: 110px" src="../assets/kyoto.jpg" fit="cover" />
+            </el-row>
+            京都
+        </el-card>
+        <el-card class="sugg-card sapp-card">
+            <el-row>
+                <img style="width: 110px; height: 110px" src="../assets/sapporo.jpg" fit="cover" />
+            </el-row>
+            札幌
+        </el-card>
+    </el-row>
+    </body>
   </template>
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
 
 const selectTemp = ref('');
 
@@ -141,7 +176,13 @@ const state1 = ref('')
 
 const onSubmit = () => {
   console.log('submit!')
-  $router.push('/result')
+  router.push({
+    path: '/result',
+    // query: {
+    //   ...route.query,
+    //   ...query,
+    // },
+  })
 }
 
 const handleSelect = (item) => {
@@ -182,18 +223,17 @@ onMounted(() => {
     destinations.value = loadAll()
 })
 
-function addLocationBlk() {
-        // 在這裡執行添加目的地的相關邏輯
-        // 例如將選擇的目的地添加到 locations 數組中
-        form.dests.push("")
-}
 
 </script>
 
 <style scoped>
 
-.el-card {
-    padding: 3%;
+.search-form-card {
+    margin-top: 12%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
     width: fit-content;
     min-width: 50%;
     max-width: 1024px;
@@ -201,8 +241,44 @@ function addLocationBlk() {
     border-radius: 30px;
 }
 
+.sugg-card {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: fit-content;
+    height: fit-content;
+    padding: auto;
+}
+
+.el-main {
+    height: 100vh;
+}
+
 .el-button{
     width: 100%;
     border-radius: 30px;
 }
+
+.submit-btn {
+    margin-top: 20px
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 50%;
+  object-fit:fill;
+  object-position: center;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/mounteverest.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(5px);
+  border-radius: 0px 0px 100% 100%;
+}
+
 </style>

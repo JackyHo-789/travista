@@ -8,5 +8,5 @@ import router from './components/router'
 
 createApp(App)
 .use(ElementPlus)
-// .use(router)
+.use(router)
 .mount('#app')
