@@ -15,11 +15,32 @@
                         class="destination-input"
                         placeholder="請輸入目的地"
                         @select="handleSelect"
+                        style="width: 100%;"
                     />
                     </el-form-item>
                 </el-col>
+
                 <el-col :span="14">
                     <el-form-item label="日期">
+                    <div class="demo-date-picker">
+                        <div class="block">
+                        <!-- <p>Component value：{{ value }}</p> -->
+                        <el-date-picker
+                            v-model="form.selectedDates"
+                            type="daterange"
+                            start-placeholder="出發日期"
+                            end-placeholder="回程日期"
+                            :default-time="defaultTime"
+                            :disabled-date="disabledDate"
+                        />
+                        </div>
+                    </div>
+                    </el-form-item>
+                </el-col>
+                
+
+                
+                    <!-- <el-form-item label="日期">
                     <el-col :span="11">
                         <el-date-picker
                         v-model="form.date1"
@@ -40,7 +61,7 @@
                         />
                     </el-col>
                     </el-form-item>
-                </el-col>
+                </el-col> -->
                 <el-col :span="1">
                     <!-- <el-button type="primary" style="margin-left: 15px;" @click="addLocationBlk">+</el-button> -->
                 </el-col>
@@ -60,6 +81,7 @@
                 <el-col :span="5">
                     <el-form-item label="小童人數" style="margin-right: 10px;">
                         <el-select v-model="form.numchild" placeholder="人數">
+                            <el-option label="0" value=0 />
                             <el-option label="1" value=1 />
                             <el-option label="2" value=2 />
                             <el-option label="3" value=3 />
@@ -70,6 +92,7 @@
                 <el-col :span="5">
                     <el-form-item label="長者人數" style="margin-right: 10px;">
                         <el-select v-model="form.numelder" placeholder="人數">
+                            <el-option label="0" value=0 />
                             <el-option label="1" value=1 />
                             <el-option label="2" value=2 />
                             <el-option label="3" value=3 />
@@ -77,7 +100,7 @@
                         </el-select>
                     </el-form-item>
                 </el-col>
-                <el-col :span="5">
+                <el-col :span="7">
                     <el-form-item label="體驗">
                         <el-select v-model="form.pref" placeholder="體驗">
                             <el-option label="經濟" value="cp" />
@@ -92,19 +115,25 @@
             </el-form-item> -->
             <el-form-item label="活動偏好">
             <el-checkbox-group v-model="form.activity">
-                <el-checkbox value="photograph" name="type">
+                <el-checkbox value="打卡" name="type">
                 打卡
                 </el-checkbox>
-                <el-checkbox value="historical" name="type">
-                歷史文化
+                <el-checkbox value="文化" name="type">
+                文化習俗
                 </el-checkbox>
-                <el-checkbox value="nature" name="type">
-                自然風景
+                <el-checkbox value="歷史" name="type">
+                歷史
                 </el-checkbox>
-                <el-checkbox value="foods" name="type">
+                <el-checkbox value="風景" name="type">
+                美景
+                </el-checkbox>
+                <el-checkbox value="自然" name="type">
+                親近大自然
+                </el-checkbox>
+                <el-checkbox value="美食" name="type">
                 美食
                 </el-checkbox>
-                <el-checkbox value="shopping" name="type">
+                <el-checkbox value="購物" name="type">
                 購物
                 </el-checkbox>
             </el-checkbox-group>
@@ -124,25 +153,25 @@
         </el-form>
     </el-card>
     <el-row>
-        <el-card class="sugg-card tky-card">
+        <el-card class="sugg-card tky-card" @click="setLocation('東京')">
             <el-row>
                 <img style="width: 110px; height: 110px" src="../assets/tokyo.jpg" fit="cover" />
             </el-row>
             東京
         </el-card>
-        <el-card class="sugg-card osa-card">
+        <el-card class="sugg-card osa-card" @click="setLocation('大阪')">
             <el-row>
                 <img style="width: 110px; height: 110px" src="../assets/osaka.jpg" fit="cover" />
             </el-row>
             大阪
         </el-card>
-        <el-card class="sugg-card kyt-card">
+        <el-card class="sugg-card kyt-card" @click="setLocation('京都')">
             <el-row>
                 <img style="width: 110px; height: 110px" src="../assets/kyoto.jpg" fit="cover" />
             </el-row>
             京都
         </el-card>
-        <el-card class="sugg-card sapp-card">
+        <el-card class="sugg-card sapp-card" @click="setLocation('札幌')">
             <el-row>
                 <img style="width: 110px; height: 110px" src="../assets/sapporo.jpg" fit="cover" />
             </el-row>
@@ -154,15 +183,20 @@
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { useQueryStore } from '@/store/QueryStore.js'
 
+const store = useQueryStore()
 const router = useRouter()
 const route = useRoute()
 
 const selectTemp = ref('');
-
+// const selectedDates = ref([])
 // do not use same name with ref
+
+
 const form = reactive({
   dests: [''],
+  selectedDates: [],
   date1: '',
   date2: '',
   numpeople: 1,
@@ -175,9 +209,12 @@ const form = reactive({
 const state1 = ref('')
 
 const onSubmit = () => {
-  console.log('submit!')
-  router.push({
-    path: '/result',
+    form.date1 = form.selectedDates[0]
+    form.date2 = form.selectedDates[1]
+    store.query = form
+    console.log('submit!')
+    router.push({
+        path: '/result',
     // query: {
     //   ...route.query,
     //   ...query,
@@ -185,9 +222,12 @@ const onSubmit = () => {
   })
 }
 
+function setLocation(location) {
+    selectTemp.value = location
+}
+
 const handleSelect = (item) => {
-  console.log(item)
-  
+    form.dests[0] = item.value
 }
 
 const destinations = ref([])
@@ -218,6 +258,17 @@ const createFilter = (queryString) => {
     )
   }
 }
+
+const disabledDate = (time) => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+  return time.getTime() < today.getTime()
+}
+
+const defaultTime = ref<[Date, Date]>([
+    new Date(),
+    new Date(),
+])
 
 onMounted(() => {
     destinations.value = loadAll()

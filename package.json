@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "pdn": "vite --host 0.0.0.0 --port 8899"
@@ -13,6 +13,7 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "element-plus": "^2.6.3",
+    "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-multiselect": "^3.0.0-beta.3",
     "vue-router": "^4.3.0"
