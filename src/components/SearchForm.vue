@@ -332,4 +332,8 @@ onMounted(() => {
   border-radius: 0px 0px 100% 100%;
 }
 
+:deep(.el-input__wrapper) {
+    width: 100%;
+}
+
 </style>
