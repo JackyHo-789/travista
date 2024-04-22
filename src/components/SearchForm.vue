@@ -184,6 +184,7 @@
 import { reactive, ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useQueryStore } from '@/store/QueryStore.js'
+import { ElMessage } from 'element-plus'
 
 const store = useQueryStore()
 const router = useRouter()
@@ -193,6 +194,9 @@ const selectTemp = ref('');
 // const selectedDates = ref([])
 // do not use same name with ref
 
+const open4 = () => {
+  ElMessage.error('Oops, this is a error message.')
+}
 
 const form = reactive({
   dests: [''],
@@ -209,17 +213,19 @@ const form = reactive({
 const state1 = ref('')
 
 const onSubmit = () => {
-    form.date1 = form.selectedDates[0]
-    form.date2 = form.selectedDates[1]
-    store.query = form
-    console.log('submit!')
-    router.push({
-        path: '/result',
-    // query: {
-    //   ...route.query,
-    //   ...query,
-    // },
-  })
+    if (form.dests[0] == '') {
+        ElMessage.error('請至少選擇一個目的地')
+    } else if (form.selectedDates.length < 2) {
+        ElMessage.error('請選擇日期')
+    } else {
+        form.date1 = form.selectedDates[0]
+        form.date2 = form.selectedDates[1]
+        store.query = form
+        console.log('submit!')
+        router.push({
+            path: '/result'
+        })
+    }
 }
 
 function setLocation(location) {
