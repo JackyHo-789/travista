@@ -179,6 +179,7 @@
         </el-card>
     </el-row>
     </body>
+    
   </template>
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
@@ -300,7 +301,7 @@ onMounted(() => {
 
 .sugg-card {
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 3%;
     width: fit-content;
     height: fit-content;
     padding: auto;

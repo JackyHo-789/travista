@@ -9,6 +9,3 @@ function getStreamMessage(response) {
 }
 
 export default getStreamMessage;
-
-
-
