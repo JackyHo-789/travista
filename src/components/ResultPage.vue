@@ -3,10 +3,15 @@
     <el-container>
         <el-aside>
             <el-card class="result-container">
+                <!-- <template #header>
+                    <div class="card-header" style="position: fixed;">
+                        <span>行程安排</span>
+                    </div>
+                </template> -->
                 <el-card v-for="card in resultCards">
                     <el-row :span="24">
                         <el-col :span="8">
-                            <el-image style="width: 50px; height: 50px" :src="card.image" :fit="fit" />
+                            <el-image style="width: 50px; height: 50px; border-radius: 10px; " :src="card.image" :fit="fit" />
                         </el-col>
                         <el-col :span="16">
                             <p>{{ card.title }}</p>
@@ -18,12 +23,25 @@
         </el-aside>
         <el-main>
             <el-card class="chatbot-container">
+                <template #header>
+                    <div class="card-header">
+                        <div>
+                        <el-avatar
+                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                        />
+                        </div>
+                        <span class="robot-name">Travista AI</span>
+                    </div>
+                </template>
+
+                <p class="chatbot-response">{{ response }}</p>
+
                 <!-- <div id = "loading">
                     <svg class="circular" viewBox="0 0 50 50">
                         <circle class="path" cx="25" cy="25" r="20" fill="none" />
                     </svg>
                 </div> -->
-                <p class="chatbot-response">{{ response }}</p>
+
             </el-card>
         </el-main>
     </el-container>
@@ -43,6 +61,7 @@
     })
 
     function openNewPage(url) {
+        console.log("open link")
         window.open(url, '_blank');
     }
 
@@ -127,7 +146,7 @@
     }
 
     function scrollToBottom() {
-        var cardElement = document.querySelector('.chatbot-container');
+        var cardElement = document.querySelector('.chatbot-response');
         // cardElement.scrollIntoView(false);
         // console.log(cardElement.scrollHeight)
         cardElement.scrollTop = cardElement.scrollHeight;
@@ -154,7 +173,7 @@
                     sight_id = sight_id.replace("<|sight_id_end|>","").replace("\n","")
                     sight_id_enabled = false
                     console.log(sight_id)
-                    callResouceApi(sight_id, "sight")
+                    // callResouceApi(sight_id, "sight")
                     sight_id = ""
                 } 
             }
@@ -224,10 +243,12 @@
 .chatbot-container {
     height: 70vh;
     max-width: 90%;
+    border-radius: 10px;
 }
 
 .result-container {
     height: 70vh;
+    border-radius: 10px;
 }
 
 .chatbot-response{
@@ -236,8 +257,10 @@
     padding-right: 20px;
     padding-top: 20px;
     margin-top: 20px;
-    color:darkblue;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 50vh;
 }
 
 .el-aside {
@@ -248,13 +271,22 @@
 
 .el-card {
     overflow-x: auto;
-    overflow-y: auto;
     border-radius: 10px;
 }
+
 .circular {
   display: inline;
   height: 30px;
   width: 30px;
   animation: loading-rotate 2s linear infinite;
+}
+
+.card-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+    gap: 10px;
 }
 </style>

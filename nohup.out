@@ -16,3 +16,226 @@
 
   ➜  Local:   http://localhost:8899/
   ➜  Network: http://192.168.8.180:8899/
+
+> travista@0.0.0 pdn
+> vite --host 0.0.0.0 --port 8899
+
+
+  VITE v5.2.7  ready in 210 ms
+
+  ➜  Local:   http://localhost:8899/
+  ➜  Network: http://192.168.8.168:8899/
+
+> travista@0.0.0 pdn
+> vite --host 0.0.0.0 --port 8899
+
+
+  VITE v5.2.7  ready in 175 ms
+
+  ➜  Local:   http://localhost:8899/
+  ➜  Network: http://192.168.8.168:8899/
+
+> travista@0.0.0 pdn
+> vite --host 0.0.0.0 --port 8899
+
+
+  VITE v5.2.7  ready in 175 ms
+
+  ➜  Local:   http://localhost:8899/
+  ➜  Network: http://192.168.8.168:8899/
+
+> travista@0.0.0 pdn
+> vite --host 0.0.0.0 --port 8899
+
+
+  VITE v5.2.7  ready in 212 ms
+
+  ➜  Local:   http://localhost:8899/
+  ➜  Network: http://192.168.8.168:8899/
+
+> travista@0.0.0 pdn
+> vite --host 0.0.0.0 --port 8899
+
+
+  VITE v5.2.7  ready in 172 ms
+
+  ➜  Local:   http://localhost:8899/
+  ➜  Network: http://192.168.8.168:8899/
+
+> travista@0.0.0 pdn
+> vite --host 0.0.0.0 --port 8899
+
+
+  VITE v5.2.7  ready in 207 ms
+
+  ➜  Local:   http://localhost:8899/
+  ➜  Network: http://192.168.8.168:8899/
+Files in the public directory are served at the root path.
+Instead of /public/.env, use /.env.
+The file does not exist at "/home/jacky/Desktop/project/travista/node_modules/.vite/deps/.json" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.
+The file does not exist at "/home/jacky/Desktop/project/travista/node_modules/.vite/deps/node_modules/@vue/devtools-api/lib/esm/const.js" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.
+The file does not exist at "/home/jacky/Desktop/project/travista/node_modules/.vite/deps/node_modules/@vue/devtools-api/lib/esm/proxy.js" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.
+The file does not exist at "/home/jacky/Desktop/project/travista/node_modules/.vite/deps/node_modules/@vue/devtools-api/lib/esm/time.js" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.
+The file does not exist at "/home/jacky/Desktop/project/travista/node_modules/.vite/deps/node_modules/@vue/devtools-api/lib/esm/index.js" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.
+The file does not exist at "/home/jacky/Desktop/project/travista/node_modules/.vite/deps/node_modules/@vue/devtools-api/lib/esm/env.js" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.
+The file does not exist at "/home/jacky/Desktop/project/travista/node_modules/.vite/deps/MyPage.vue" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.
+10:02:59 pm [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/index
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+10:03:00 pm [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/objects/4c/d5560808eac3bd74aafdbe7111e2aaee47fcd7
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+10:03:00 pm [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/objects/1c/95aba256a20789cdae555abaa25c2d969db5dd
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+10:03:00 pm [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/objects/f9/e7a62e82b303703ff2286b86b244ec26fd10f5
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+Files in the public directory are served at the root path.
+Instead of /public/.git/config, use /.git/config.
+Files in the public directory are served at the root path.
+Instead of /public/.git/config, use /.git/config.
+7:16:50 am [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/index
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+      at async viteTransformMiddleware (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:63631:32)
+7:16:54 am [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/objects/4c/d5560808eac3bd74aafdbe7111e2aaee47fcd7
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+      at async viteTransformMiddleware (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:63631:32)
+7:16:54 am [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/objects/f9/e7a62e82b303703ff2286b86b244ec26fd10f5
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+      at async viteTransformMiddleware (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:63631:32)
+7:16:55 am [vite] Internal server error: Failed to parse source for import analysis because the content contains invalid JS syntax. If you are using JSX, make sure to name the file with the .jsx or .tsx extension.
+  Plugin: vite:import-analysis
+  File: /home/jacky/Desktop/project/travista/.git/objects/1c/95aba256a20789cdae555abaa25c2d969db5dd
+      at formatError (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50796:46)
+      at TransformContext.error (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:50790:19)
+      at TransformContext.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:65876:22)
+      at async Object.transform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:51105:30)
+      at async loadAndTransform (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:53858:29)
+      at async viteTransformMiddleware (file:///home/jacky/Desktop/project/travista/node_modules/vite/dist/node/chunks/dep-C-KAszbv.js:63631:32)
+10:58:42 pm [vite] hmr update /src/components/ResultPage.vue
+
+> travista@0.0.0 pdn
+> vite --host 0.0.0.0 --port 8899
+
+
+  VITE v5.2.7  ready in 178 ms
+
+  ➜  Local:   http://localhost:8899/
+  ➜  Network: http://192.168.8.168:8899/
+11:01:06 pm [vite] hmr update /src/components/ResultPage.vue
+11:01:10 pm [vite] hmr update /src/components/ResultPage.vue
+11:01:30 pm [vite] hmr update /src/components/ResultPage.vue
+11:01:49 pm [vite] hmr update /src/components/ResultPage.vue
+11:02:05 pm [vite] hmr update /src/components/ResultPage.vue
+11:03:59 pm [vite] hmr update /src/components/ResultPage.vue
+11:04:02 pm [vite] hmr update /src/components/ResultPage.vue
+11:04:38 pm [vite] hmr update /src/components/ResultPage.vue
+11:05:04 pm [vite] hmr update /src/components/ResultPage.vue
+11:05:10 pm [vite] hmr update /src/components/ResultPage.vue
+11:09:36 pm [vite] hmr update /src/components/ResultPage.vue
+11:09:45 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:09:51 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:10:01 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:11:04 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:11:42 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:11:58 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:12:00 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:12:41 pm [vite] hmr update /src/components/ResultPage.vue
+11:12:52 pm [vite] hmr update /src/components/ResultPage.vue
+11:12:54 pm [vite] hmr update /src/components/ResultPage.vue
+11:13:24 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:13:27 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:13:30 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:14:55 pm [vite] hmr update /src/components/ResultPage.vue
+11:14:58 pm [vite] hmr update /src/components/ResultPage.vue
+11:15:04 pm [vite] hmr update /src/components/ResultPage.vue
+11:15:46 pm [vite] hmr update /src/components/ResultPage.vue
+11:16:14 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:17:31 pm [vite] hmr update /src/components/ResultPage.vue
+11:17:37 pm [vite] hmr update /src/components/ResultPage.vue
+11:17:40 pm [vite] hmr update /src/components/ResultPage.vue
+11:17:52 pm [vite] hmr update /src/components/ResultPage.vue
+11:18:56 pm [vite] hmr update /src/components/ResultPage.vue
+11:19:30 pm [vite] hmr update /src/components/ResultPage.vue
+11:19:46 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:21:22 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:22:34 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:23:48 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:23:50 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:24:01 pm [vite] hmr update /src/components/ResultPage.vue
+11:26:04 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:26:09 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:26:30 pm [vite] hmr update /src/components/ResultPage.vue
+11:27:49 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:28:40 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:29:49 pm [vite] hmr update /src/components/ResultPage.vue
+11:35:21 pm [vite] hmr update /src/components/ResultPage.vue
+11:36:08 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:36:16 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:36:20 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:37:13 pm [vite] hmr update /src/components/ResultPage.vue
+11:37:28 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:37:56 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:38:16 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:38:47 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:39:02 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:39:19 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:39:29 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:39:33 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:39:39 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:39:51 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:40:56 pm [vite] hmr update /src/components/ResultPage.vue
+11:41:15 pm [vite] hmr update /src/components/ResultPage.vue
+11:41:19 pm [vite] hmr update /src/components/ResultPage.vue
+11:41:46 pm [vite] hmr update /src/components/ResultPage.vue
+11:42:13 pm [vite] hmr update /src/components/ResultPage.vue
+11:42:24 pm [vite] hmr update /src/components/ResultPage.vue
+11:42:41 pm [vite] hmr update /src/components/ResultPage.vue
+11:42:43 pm [vite] hmr update /src/components/ResultPage.vue
+11:43:42 pm [vite] hmr update /src/components/ResultPage.vue
+11:45:58 pm [vite] hmr update /src/components/ResultPage.vue
+11:47:19 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:47:19 pm [vite] hmr update /src/components/ResultPage.vue?vue&type=style&index=0&scoped=cd648ab1&lang.css
+11:48:26 pm [vite] hmr update /src/components/ResultPage.vue
+11:48:28 pm [vite] hmr update /src/components/ResultPage.vue
+11:48:30 pm [vite] hmr update /src/components/ResultPage.vue
+11:49:06 pm [vite] hmr update /src/components/ResultPage.vue

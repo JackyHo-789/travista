@@ -118,23 +118,26 @@
                 <el-checkbox value="打卡" name="type">
                 打卡
                 </el-checkbox>
-                <el-checkbox value="文化" name="type">
+                <el-checkbox value="體驗文化" name="type">
                 文化習俗
                 </el-checkbox>
-                <el-checkbox value="歷史" name="type">
+                <el-checkbox value="了解歷史" name="type">
                 歷史
                 </el-checkbox>
-                <el-checkbox value="風景" name="type">
+                <el-checkbox value="觀賞風景" name="type">
                 美景
                 </el-checkbox>
-                <el-checkbox value="自然" name="type">
+                <el-checkbox value="親近大自然" name="type">
                 親近大自然
                 </el-checkbox>
-                <el-checkbox value="美食" name="type">
+                <el-checkbox value="享用美食" name="type">
                 美食
                 </el-checkbox>
                 <el-checkbox value="購物" name="type">
                 購物
+                </el-checkbox>
+                <el-checkbox value="溫泉" name="type">
+                溫泉
                 </el-checkbox>
             </el-checkbox-group>
             </el-form-item>
