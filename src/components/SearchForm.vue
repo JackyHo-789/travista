@@ -115,9 +115,6 @@
             </el-form-item> -->
             <el-form-item label="活動偏好">
             <el-checkbox-group v-model="form.activity">
-                <el-checkbox value="打卡" name="type">
-                打卡
-                </el-checkbox>
                 <el-checkbox value="體驗文化" name="type">
                 文化習俗
                 </el-checkbox>
