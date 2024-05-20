@@ -1,4 +1,5 @@
 <template>
+    <pre>{{ showLoc }}</pre>
     <el-header>
         <img class="backgroundImage"/>
     </el-header>
@@ -149,32 +150,52 @@
             </el-form-item>
         </el-form>
     </el-card>
-    <el-row>
-        <el-card class="sugg-card tky-card" @click="setLocation('東京')">
+        <div class="block text-center" style="margin-top: 20px; height: 200px">
+            <span>熱門景點</span>
+            <el-carousel height="auto" autoplay type="card" :pause-on-hover="true" :interval="5000">
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('tky')" @mouseout="hideLocText('tky')" @click="setLocation('東京')">
+                <img style="width: 100%; height: 200px;" src="../assets/tokyo.jpg" fit="cover" />
+                <p :hidden="!showLoc.tky" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">東京</p>
+            </el-carousel-item>
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('kyo')" @mouseout="hideLocText('kyo')" @click="setLocation('京都')">
+                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/kyoto.jpg" fit="cover" />
+                <p :hidden="!showLoc.kyo" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">京都</p>
+            </el-carousel-item>
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('osa')" @mouseout="hideLocText('osa')" @click="setLocation('大阪')">
+                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/osaka.jpg" fit="cover" />
+                <p :hidden="!showLoc.osa" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">大阪</p>
+            </el-carousel-item>
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('sapp')" @mouseout="hideLocText('sapp')" @click="setLocation('札幌')">
+                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/sapporo.jpg" fit="cover" />
+                <p :hidden="!showLoc.sapp" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">札幌</p>
+            </el-carousel-item>
+            </el-carousel>
+        </div>
+<!-- 
+        <el-card class="sugg-card tky-card" @click="setLocation('東京')" style="text-align:center">
             <el-row>
-                <img style="width: 110px; height: 110px" src="../assets/tokyo.jpg" fit="cover" />
+                <img style="width: 110px; height: 110px; border-radius: 10px;" src="../assets/tokyo.jpg" fit="cover" />
             </el-row>
             東京
         </el-card>
-        <el-card class="sugg-card osa-card" @click="setLocation('大阪')">
+        <el-card class="sugg-card osa-card" @click="setLocation('大阪')" style="text-align:center">
             <el-row>
-                <img style="width: 110px; height: 110px" src="../assets/osaka.jpg" fit="cover" />
+                <img style="width: 110px; height: 110px; border-radius: 10px;" src="../assets/osaka.jpg" fit="cover" />
             </el-row>
             大阪
         </el-card>
-        <el-card class="sugg-card kyt-card" @click="setLocation('京都')">
+        <el-card class="sugg-card kyt-card" @click="setLocation('京都')" style="text-align:center">
             <el-row>
-                <img style="width: 110px; height: 110px" src="../assets/kyoto.jpg" fit="cover" />
+                <img style="width: 110px; height: 110px; border-radius: 10px;" src="../assets/kyoto.jpg" fit="cover" />
             </el-row>
             京都
         </el-card>
-        <el-card class="sugg-card sapp-card" @click="setLocation('札幌')">
+        <el-card class="sugg-card sapp-card" @click="setLocation('札幌')" style="text-align:center">
             <el-row>
-                <img style="width: 110px; height: 110px" src="../assets/sapporo.jpg" fit="cover" />
+                <img style="width: 110px; height: 110px; border-radius: 10px;" src="../assets/sapporo.jpg" fit="cover" />
             </el-row>
             札幌
-        </el-card>
-    </el-row>
+        </el-card> -->
     </body>
     
   </template>
@@ -192,9 +213,27 @@ const selectTemp = ref('');
 // const selectedDates = ref([])
 // do not use same name with ref
 
-const open4 = () => {
+const open = () => {
   ElMessage.error('Oops, this is a error message.')
 }
+
+const showLoc = ref({
+    tky: false,
+    osa: false,
+    kyo: false,
+    sapp: false
+})
+
+const showLocText = (key) => {
+    showLoc.value[key] = true
+}
+
+const hideLocText = (key) => {
+    showLoc.value[key] = false
+}
+
+var cardElement = document.querySelector('.tky-card');
+// cardElement.on
 
 const form = reactive({
   dests: [''],
@@ -303,6 +342,7 @@ onMounted(() => {
     width: fit-content;
     height: fit-content;
     padding: auto;
+    justify-content: center;
 }
 
 .el-main {
@@ -339,6 +379,26 @@ onMounted(() => {
 
 :deep(.el-input__wrapper) {
     width: 100%;
+}
+
+:deep(.el-carousel__item h3) {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+  text-align: center;
+}
+
+:deep(.el-carousel__item:nth-child(2n)) {
+  background-color: #99a9bf;
+}
+
+:deep(.el-carousel__item:nth-child(2n + 1)) {
+  background-color: #d3dce6;
+}
+
+img:hover {
+    filter: blur(10px);
 }
 
 </style>
