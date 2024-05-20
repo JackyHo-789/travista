@@ -1,5 +1,4 @@
 <template>
-    <pre>{{ showLoc }}</pre>
     <el-header>
         <img class="backgroundImage"/>
     </el-header>
