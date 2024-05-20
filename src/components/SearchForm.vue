@@ -397,7 +397,7 @@ onMounted(() => {
 }
 
 img:hover {
-    filter: blur(10px);
+    filter: blur(5px);
 }
 
 </style>
