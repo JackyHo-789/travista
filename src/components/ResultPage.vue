@@ -8,7 +8,7 @@
                         <span>行程安排</span>
                     </div>
                 </template> -->
-                <el-card v-for="card in resultCards">
+                <el-card v-for="card in resultCards" style="margin-bottom: 3px;">
                     <el-row :span="24">
                         <el-col :span="8">
                             <el-image style="width: 50px; height: 50px; border-radius: 10px; " :src="card.image" :fit="fit" />
@@ -236,6 +236,9 @@
   filter: blur(8px);
   /* border-radius: 0px 0px 100% 100%; */
 }
+:deep(.el-card__header){
+    background-color: aliceblue;
+}
 .el-container {
     margin-top: 20px;
 }
@@ -249,6 +252,7 @@
 .result-container {
     height: 70vh;
     border-radius: 10px;
+    background-color: aliceblue;
 }
 
 .chatbot-response{

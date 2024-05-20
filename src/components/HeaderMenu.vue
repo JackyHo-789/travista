@@ -9,7 +9,7 @@
     >
       <el-menu-item index="/">搜索</el-menu-item>
       <!-- <el-menu-item index="/result">結果</el-menu-item> -->
-      <el-menu-item index="2" >討論區</el-menu-item>
+      <!-- <el-menu-item index="2" >討論區</el-menu-item> -->
     </el-menu>
     <div class="h-6" />
   </template>
