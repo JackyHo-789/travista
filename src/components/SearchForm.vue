@@ -136,9 +136,6 @@
                 <el-checkbox value="購物" name="type">
                 購物
                 </el-checkbox>
-                <el-checkbox value="溫泉" name="type">
-                溫泉
-                </el-checkbox>
             </el-checkbox-group>
             </el-form-item>
             <!-- <el-form-item label="Resources">
