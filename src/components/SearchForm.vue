@@ -228,6 +228,7 @@ const onSubmit = () => {
 
 function setLocation(location) {
     selectTemp.value = location
+    form.dests[0] = location
 }
 
 const handleSelect = (item) => {
