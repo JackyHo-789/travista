@@ -377,7 +377,7 @@ onMounted(() => {
 }
 
 :deep(.el-input__wrapper) {
-    width: 100%;
+    width: 150px;
 }
 
 :deep(.el-carousel__item h3) {

@@ -65,7 +65,7 @@
         window.open(url, '_blank');
     }
 
-    const baseUrl = "https://travista.sytes.net:10889"
+    const baseUrl = "https://travistahk.com:10889"
         
     function getFlightStreamMessage(message) {
         let flight_id = ""
