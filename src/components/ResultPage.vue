@@ -191,7 +191,7 @@
 
     function callResouceApi(id, type) {
         // Set the URL and parameters
-        let url = "https://travista.sytes.net:10889/bot/msg/resource"
+        let url = "https://travistahk.com:10889/bot/msg/resource"
         let params = {
             id: id,
             type: type
