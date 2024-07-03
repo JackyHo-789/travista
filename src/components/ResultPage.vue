@@ -35,6 +35,14 @@
                 </template>
 
                 <p class="chatbot-response">{{ response }}</p>
+                <el-input 
+                    v-if="!inputDisabled"
+                    v-model="inputString"
+                    @keyup.enter="getFreeTextStreamMessage(inputString)"
+                    :disabled="inputDisabled"
+                >
+                    
+                </el-input>
 
                 <!-- <div id = "loading">
                     <svg class="circular" viewBox="0 0 50 50">
@@ -44,14 +52,38 @@
 
             </el-card>
         </el-main>
+        <div class="klook_commercial">
+            <KlookWidget
+            adid="879417"
+            tid="2"
+            amount="4"
+            ></KlookWidget>
+        </div>
     </el-container>
+
 </template>
 <script setup>
     import { ref, onMounted } from 'vue'
     import { useQueryStore } from '@/store/QueryStore.js'
+    import KlookWidget from './KlookWidget.vue'
+
+    (function (d, sc, u) {
+        var s = d.createElement(sc),
+            p = d.getElementsByTagName(sc)[0];
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = u;
+        p.parentNode.insertBefore(s, p);
+        })(
+        document,
+        "script",
+        "https://affiliate.klook.com/widget/fetch-iframe-init.js"
+    );
 
     const store = useQueryStore()
     const resultCards = ref([])
+    const inputString = ref('')
+    const inputDisabled = ref(true)
 
     const response = ref("")
     onMounted(() => {
@@ -66,6 +98,81 @@
     }
 
     const baseUrl = "https://travistahk.com:10889"
+
+    function getFreeTextStreamMessage(message) {
+        inputString.value = ""
+        let flight_id = ""
+        let hotel_id = ""
+        let sight_id = ""
+        let flight_id_enabled = false
+        let hotel_id_enabled = false
+        let sight_id_enabled = false
+        response.value += '-------------------\n\n'
+        // let message = "1.用戶需求:\n|experience|preference|total_num_client|elder|child|budget|\n|-----|-----|-----|-----|-----|-----|\n|休閒,養生,文化,風景|經濟|4|N|N|70,000|\n------\n2.行程總覽:\n|stay_days|location|location_id|from_date|to_date|\n|-----|-----|-----|-----|-----|\n|4|東京|6|2024-03-29|2024-04-01|\n------\n3.航班數據:\n3a.出發航班|flight_id|flight_code|duration|price|dept_tm|arr_time|dept_airport|arr_airport|flight_company|is_low_cost|prov_food|url|\n|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n|1|CX504|250|2500|920|1430|香港國際機場|東京成田國際機場|國泰航空|N|Y||\n|2|HX604|260|1000|740|1300|香港國際機場|東京成田國際機場|香港航空|Y|N||\n|3|UO650|270|1000|1415|1945|香港國際機場|東京成田國際機場|香港快運|Y|N||\n|4|NH860|255|3031|1445|1800|香港國際機場|東京成田國際機場|全日空航空|N|Y||\n|5|JL26|250|2740|1515|1825|香港國際機場|東京成田國際機場|日本航空|N|Y||\n3b.返航航班:|flight_id|flight_code|duration|price|dept_tm|arr_time|dept_airport|arr_airport|flight_company|is_low_cost|prov_food|url|\n|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n|36|UO647|295|1013|1920|2315|東京成田國際機場|香港國際機場|香港快運|Y|N||\n|37|HX605|290|1547|1400|1750|東京成田國際機場|香港國際機場|香港航空|N|Y||\n|38|CX509|300|3171|915|1315|東京成田國際機場|香港國際機場|國泰航空|N|Y||\n|39|CX521|290|3200|1715|2105|東京成田國際機場|香港國際機場|國泰航空|N|Y||\n|40|JL735|280|3604|1820|2200|東京成田國際機場|香港國際機場|日本航空|N|Y||\n------\n指令:根據以上1.用戶需求,2.行程總覽,以及3.航班數據,推薦合適的航班.\n"   
+        const eventSource = new EventSource(baseUrl + '/bot/chat/stream?msg=' + encodeURIComponent(message));
+        eventSource.onmessage = (event) => {
+            // document.getElementById("loading").style.visibility = "hidden";
+            let result = event.data;
+            // console.log(result);
+            while (result.includes("<br>")) {
+                result = result.replace("<br>", "\n");
+            }
+            // console.log(response.value.includes("<|flight_id_start|>"))
+            if (response.value.includes("<|flight_id_start|>") && !flight_id_enabled) {
+                flight_id_enabled = true
+                response.value = response.value.replace("<|flight_id_start|>","")
+                flight_id += result
+            } 
+            else if (flight_id_enabled) {
+                flight_id += result
+                if (flight_id.includes("<|flight_id_end|>")) {
+                    flight_id = flight_id.replace("<|flight_id_end|>","").replace("\n","")
+                    flight_id_enabled = false
+                    console.log(flight_id)
+                    callResouceApi(flight_id, "flight")
+                    flight_id = ""
+                } 
+            }
+            if (response.value.includes("<|sight_id_start|>") && !sight_id_enabled) {
+                sight_id_enabled = true
+                response.value = response.value.replace("<|sight_id_start|>","")
+                sight_id += result
+            }
+            else if (sight_id_enabled) {
+                sight_id += result
+                if (sight_id.includes("<|sight_id_end|>")) {
+                    sight_id = sight_id.replace("<|sight_id_end|>","").replace("\n","")
+                    sight_id_enabled = false
+                    console.log(sight_id)
+                    // callResouceApi(sight_id, "sight")
+                    sight_id = ""
+                } 
+            }
+            if (response.value.includes("<|hotel_id_start|>") && !hotel_id_enabled) {
+                hotel_id_enabled = true
+                response.value = response.value.replace("<|hotel_id_start|>","")
+                hotel_id += result
+            } 
+            else if (hotel_id_enabled) {
+                hotel_id += result
+                if (hotel_id.includes("<|hotel_id_end|>")) {
+                    hotel_id = hotel_id.replace("<|hotel_id_end|>","").replace("\n","")
+                    hotel_id_enabled = false
+                    console.log(hotel_id)
+                    callResouceApi(hotel_id, "hotel")
+                    hotel_id = ""
+                } 
+            }
+            else if (result.includes("<|endoftext|>")) {
+                console.log("closed");
+                response.value += "\n"
+                eventSource.close();
+            } else {
+                response.value += result;
+                scrollToBottom();
+            }
+        };
+    }
         
     function getFlightStreamMessage(message) {
         let flight_id = ""
@@ -181,6 +288,7 @@
                 console.log("closed");
                 response.value += "\n\n"
                 eventSource.close();
+                inputDisabled.value=false
             }
             else {
                 response.value += result;
@@ -217,6 +325,7 @@
     }
 
 </script>
+
 <style scoped>
 .backgroundImage {
   width: 100%;
@@ -245,7 +354,7 @@
 
 .chatbot-container {
     height: 70vh;
-    max-width: 90%;
+    max-width: 100%;
     border-radius: 10px;
 }
 
@@ -253,6 +362,10 @@
     height: 70vh;
     border-radius: 10px;
     background-color: aliceblue;
+}
+
+.el-input {
+    align-self: flex-end;
 }
 
 .chatbot-response{
@@ -291,5 +404,9 @@
     justify-content: flex-start;
     margin-left: 20px;
     gap: 10px;
+}
+.klook_commercial{
+    margin-top: 30px;
+    margin-right: 30px;
 }
 </style>

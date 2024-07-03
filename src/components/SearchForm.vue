@@ -149,27 +149,7 @@
             </el-form-item>
         </el-form>
     </el-card>
-        <div class="block text-center" style="margin-top: 20px; height: 200px">
-            <span>熱門景點</span>
-            <el-carousel height="auto" autoplay type="card" :pause-on-hover="true" :interval="5000">
-            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('tky')" @mouseout="hideLocText('tky')" @click="setLocation('東京')">
-                <img style="width: 100%; height: 200px;" src="../assets/tokyo.jpg" fit="cover" />
-                <p :hidden="!showLoc.tky" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">東京</p>
-            </el-carousel-item>
-            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('kyo')" @mouseout="hideLocText('kyo')" @click="setLocation('京都')">
-                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/kyoto.jpg" fit="cover" />
-                <p :hidden="!showLoc.kyo" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">京都</p>
-            </el-carousel-item>
-            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('osa')" @mouseout="hideLocText('osa')" @click="setLocation('大阪')">
-                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/osaka.jpg" fit="cover" />
-                <p :hidden="!showLoc.osa" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">大阪</p>
-            </el-carousel-item>
-            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('sapp')" @mouseout="hideLocText('sapp')" @click="setLocation('札幌')">
-                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/sapporo.jpg" fit="cover" />
-                <p :hidden="!showLoc.sapp" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">札幌</p>
-            </el-carousel-item>
-            </el-carousel>
-        </div>
+
 <!-- 
         <el-card class="sugg-card tky-card" @click="setLocation('東京')" style="text-align:center">
             <el-row>
@@ -195,14 +175,42 @@
             </el-row>
             札幌
         </el-card> -->
+        <div class="klook_commercial">
+            <KlookWidget
+            adid="879454"
+            tid="1"
+            amount="3"
+            ></KlookWidget>
+        </div>
+        <!-- <div class="block text-center" style="margin-top: 20px; height: 200px">
+            <span>熱門景點</span>
+            <el-carousel height="auto" autoplay type="card" :pause-on-hover="true" :interval="5000">
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('tky')" @mouseout="hideLocText('tky')" @click="setLocation('東京')">
+                <img style="width: 100%; height: 200px;" src="../assets/tokyo.jpg" fit="cover" />
+                <p :hidden="!showLoc.tky" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">東京</p>
+            </el-carousel-item>
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('kyo')" @mouseout="hideLocText('kyo')" @click="setLocation('京都')">
+                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/kyoto.jpg" fit="cover" />
+                <p :hidden="!showLoc.kyo" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">京都</p>
+            </el-carousel-item>
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('osa')" @mouseout="hideLocText('osa')" @click="setLocation('大阪')">
+                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/osaka.jpg" fit="cover" />
+                <p :hidden="!showLoc.osa" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">大阪</p>
+            </el-carousel-item>
+            <el-carousel-item style="height: 200px; border-radius: 10px;" @mouseover="showLocText('sapp')" @mouseout="hideLocText('sapp')" @click="setLocation('札幌')">
+                <img style="width: 100%; height: 200px; border-radius: 0px;" src="../assets/sapporo.jpg" fit="cover" />
+                <p :hidden="!showLoc.sapp" style="color:white; font-size:40px; position: absolute; text-align: center; top: 20%; left:40%">札幌</p>
+            </el-carousel-item>
+            </el-carousel>
+        </div> -->
     </body>
-    
   </template>
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useQueryStore } from '@/store/QueryStore.js'
 import { ElMessage } from 'element-plus'
+import KlookWidget from './KlookWidget.vue'
 
 const store = useQueryStore()
 const router = useRouter()
@@ -399,5 +407,8 @@ onMounted(() => {
 img:hover {
     filter: blur(5px);
 }
-
+.klook_commercial{
+    /* width: 1000px; */
+    margin-top:24px
+}
 </style>
